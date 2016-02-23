@@ -1,0 +1,41 @@
+
+
+<p id="notice"><%= notice %></p>
+
+<div class="container"><h1>Contact Lists</h1></div>
+
+<div class="container">
+   <div class = "table-responsive">
+    <table class="table">
+  <thead>
+      <th>Name</th>
+      <th>Address</th>
+      <th>Tel. No.</th>
+      <th>Fax No.</th>
+      <th>Mobile No</th>
+      <th>Email</th>
+      <th>Company</th>
+      <th colspan="3"></th>
+    </thead>
+<tbody>
+    <% @contacts.each do |contact| %>
+      <tr>
+        <td><%= contact.name.titlecase %></td>
+        <td><%= contact.address.titlecase %></td>
+        <td><%= contact.tel_no %></td>
+        <td><%= contact.fax_no %></td>
+        <td><%= contact.mobile_no %></td>
+        <td><%= contact.email %></td>
+        <td><%= contact.company.titlecase %></td>
+        <!--td><button type ="button" class="btn btn-primary btn-sm"><%= link_to 'Show', contact %></td></button-->
+        <td><button type ="button" class="btn btn-primary btn-sm"><%= link_to 'Edit', edit_contact_path(contact) %></td></button>
+        <td><button type ="button" class="btn btn-danger btn-sm"><%= link_to 'Destroy', contact, method: :delete, data: { confirm: 'Are you sure?' } %></td></button>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
+</div>
+<div class="container">
+<button type ="button" class="btn btn-success btn-md"><%= link_to 'New Contact', new_contact_path %></button>
+</container>
